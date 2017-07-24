@@ -2,6 +2,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 
 const buttonStyles = {
   border: '3px solid orange',
@@ -15,15 +16,17 @@ const buttonStyles = {
   height: 50
 };
 
-const Color = ({ onClick, color, isMainColor, isSelected = false }) => {
+const Color = ({ onClick, color, isSelected = false }) => {
   let mainColorStyle = (isSelected) ? {border: '4px solid red'} : {}
   let mergedStyle = Object.assign({}, buttonStyles, mainColorStyle)
-  return <button style={Object.assign({}, mergedStyle, {backgroundColor: color})} onClick={onClick} />
+  return <button 
+    style={Object.assign({}, mergedStyle, {backgroundColor: color})} 
+    onClick={e => {
+                    e.preventDefault()
+                    //
+                  }} />
 }
 
-Color.propTypes = {
-  isMainColor: PropTypes.bool,
-};
 Color.defaultProps = {
   onClick: () => {},
 };

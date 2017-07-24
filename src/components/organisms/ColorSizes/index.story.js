@@ -28,6 +28,7 @@ let colorSizesExample = {
 }
 
 storiesOf('ColorSizes', module)
+    .add('ColorSizes not color not size', () => <ColorSizes colorSizes={colorSizesExample} />)
     .add('ColorSizes color not selected size 42', () => <ColorSizes colorSizes={colorSizesExample} sizeSelected={42} />)
     .add('ColorSizes colorSelcted lime color lime size not selected', () => <ColorSizes colorSizes={colorSizesExample} colorSelected={'lime'} />)
     .add('ColorSizes colorSelcted lime color lime size 46', () => <ColorSizes colorSizes={colorSizesExample} colorSelected={'lime'} sizeSelected={42} />)
