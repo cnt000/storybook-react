@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # React Storybook scaffold
 
 This is a simple Storybook scaffolding project create to play easily with React.
@@ -30,7 +29,6 @@ To add a story just place a file called `*.story.js` inside the `src` folder
 
 * [React](https://facebook.github.io/react/)
 * [Storybook](https://github.com/storybooks/storybook)
-=======
+
 # storybook-scaffold
 test component on scaffold
->>>>>>> 0a31aa7c618f0bf9093b55b2a536b42ee4c2e396
