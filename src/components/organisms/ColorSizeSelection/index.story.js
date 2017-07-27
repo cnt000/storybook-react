@@ -28,4 +28,4 @@ let colorSizesExample = {
 }
 
 storiesOf('ColorSizeSelection', module)
-    .add('ColorSizeSelection', () => <ColorSizeSelection colorSizes={colorSizesExample} />)
+    .add('ColorSizeSelection', () => <ColorSizeSelection colorSizes={colorSizesExample}/>)

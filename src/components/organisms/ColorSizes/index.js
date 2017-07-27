@@ -8,10 +8,18 @@ class ColorSizes extends React.Component {
   
   constructor(props) {
     super(props);
+    this.callParent = this.callParent.bind(this) 
     this.state = {
       colorSelected: this.props.colorSelected,
       sizeSelected: this.props.sizeSelected
-    } 
+    }
+  }
+
+  callParent(c) {
+    this.setState({
+      colorSelected: this.props.colorSelected
+    });
+    this.props.callbackParent(c)
   }
 
   render() {
@@ -19,9 +27,10 @@ class ColorSizes extends React.Component {
       <Colors 
         colors={this.props.colorSizes.colors}
         selected={this.state.colorSelected}
+        onClick={this.callParent}
       />
       <Sizes 
-        classType={this.props.classType}
+        classType={this.props.colorSizes.classType}
         sizes={this.props.colorSizes.sizes}
         selected={this.state.sizeSelected}
       />

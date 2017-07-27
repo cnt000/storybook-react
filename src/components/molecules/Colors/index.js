@@ -12,10 +12,10 @@ class Colors extends React.Component {
 
   render() {
     return <div><span>Colors: </span>
-      {this.props.colors.map(color => <Color 
-        key={color} 
-        color={color} 
-        isSelected={(this.props.selected === color)} 
+      {this.props.colors.map(color => <Color
+        key={color}
+        color={color}
+        isSelected={(this.props.selected === color)}
         onClick={this.props.onClick}
       />)}
     </div>
