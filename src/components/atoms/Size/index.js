@@ -13,10 +13,14 @@ const buttonStyles = {
   margin: 10,
 };
 
-const Size = ({ onClick, children, isSelected = false  }) => {
+const Size = ({ onClick, children, size, isSelected = false  }) => {
   let mainStyle = (isSelected) ? {border: '4px solid red'} : {}
   let mergedStyle = Object.assign({}, buttonStyles, mainStyle)
-  return <button style={mergedStyle} onClick={onClick}>
+  return <button 
+    style={mergedStyle} 
+    onClick={e => {
+      onClick('size', size);
+    }}>
     {children}
   </button>
 }

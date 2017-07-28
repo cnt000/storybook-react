@@ -15,9 +15,17 @@ class ColorSizeSelection extends React.Component {
     }
   }
 
-  onChildChanged(color) {
-    console.log(color, " --> CIAONE")
-    this.setState({ colorSelected: color });
+  onChildChanged(type, value) {
+    console.log(type, value);
+    if(type === 'color') {
+      this.setState({
+        colorSelected: value
+      });
+    } else if(type === 'size') {
+      this.setState({
+        sizeSelected: value
+      });
+    }
   }
 
   render() {
@@ -25,6 +33,7 @@ class ColorSizeSelection extends React.Component {
       <ColorSizes 
         colorSizes={this.props.colorSizes}
         colorSelected={this.state.colorSelected}
+        sizeSelected={this.state.sizeSelected}
         callbackParent={this.onChildChanged}
       />
     </div>

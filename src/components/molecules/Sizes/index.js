@@ -16,7 +16,12 @@ class Sizes extends React.Component {
 
     return <div><span>Sizes: </span>
       <span>{this.props.classType}</span>
-      {this.props.sizes.map(size => <Size key={size} isSelected={(this.props.selected === size)}>{`${size}`}</Size>)}
+      {this.props.sizes.map(size => <Size 
+        key={size} 
+        size={size} 
+        isSelected={(this.props.selected === size)} 
+        onClick={this.props.onClick}
+      >{`${size}`}</Size>)}
     </div>
   }
 
