@@ -20,6 +20,7 @@ class Sizes extends React.Component {
         key={size} 
         size={size} 
         isSelected={(this.props.selected === size)} 
+        isDisabled={this.props.availability.filter((obj) => size === obj.size && obj.stock > 0).length === 0}
         onClick={this.props.onClick}
       >{`${size}`}</Size>)}
     </div>

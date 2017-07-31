@@ -10,22 +10,25 @@ class ColorSizeSelection extends React.Component {
     super(props);
     this.onChildChanged = this.onChildChanged.bind(this) 
     this.state = {
-      colorSelected: 'lime',
+      colorSelected: this.props.colorSelected,
       sizeSelected: ''
     }
   }
 
   onChildChanged(type, value) {
-    console.log(type, value);
     if(type === 'color') {
       this.setState({
         colorSelected: value
-      });
+      }, () => this.checkValidity(this.props.colorSizes.colorSizesAvailability[this.state.colorSelected]));
     } else if(type === 'size') {
       this.setState({
         sizeSelected: value
-      });
+      }, () => this.checkValidity(this.props.colorSizes.colorSizesAvailability[this.state.colorSelected]));
     }
+  }
+
+  checkValidity(sizes) {
+    //console.log(sizes)
   }
 
   render() {
@@ -36,6 +39,7 @@ class ColorSizeSelection extends React.Component {
         sizeSelected={this.state.sizeSelected}
         callbackParent={this.onChildChanged}
       />
+      {(this.state.colorSelected != '' && this.state.sizeSelected != '') ? <span>Selezione valida</span> : <span>Seleziona qualcosa</span>}
     </div>
   }
 
