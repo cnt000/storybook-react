@@ -19,16 +19,23 @@ class ColorSizeSelection extends React.Component {
     if(type === 'color') {
       this.setState({
         colorSelected: value
-      }, () => this.checkValidity(this.props.colorSizes.colorSizesAvailability[this.state.colorSelected]));
+      });
     } else if(type === 'size') {
       this.setState({
         sizeSelected: value
-      }, () => this.checkValidity(this.props.colorSizes.colorSizesAvailability[this.state.colorSelected]));
+      });
     }
   }
 
-  checkValidity(sizes) {
-    //console.log(sizes)
+  isValidSelection(availability) {
+    console.log(this.state.colorSelected);
+    if(this.state.colorSelected != '') {
+      if(this.props.colorSizes.colorSizesAvailability[this.state.colorSelected].filter((obj) => obj.size === this.state.sizeSelected && obj.size > 0).length > 0) {
+        return true
+      }
+
+    }
+    return false;
   }
 
   render() {
@@ -37,6 +44,7 @@ class ColorSizeSelection extends React.Component {
         colorSizes={this.props.colorSizes}
         colorSelected={this.state.colorSelected}
         sizeSelected={this.state.sizeSelected}
+        isValid={this.isValidSelection()}
         callbackParent={this.onChildChanged}
       />
       {(this.state.colorSelected != '' && this.state.sizeSelected != '') ? <span>Selezione valida</span> : <span>Seleziona qualcosa</span>}

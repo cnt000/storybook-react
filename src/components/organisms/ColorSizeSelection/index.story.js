@@ -30,8 +30,56 @@ let colorSizesExample = {
                 size: 44
             }
         ],
-    }
+    },
+    colorSizesAvailabilityBis: [
+        {
+            color: 'green',
+            size: 44,
+            Quantity: 5,
+        },
+        {
+            color: 'green',
+            size: 42,
+            Quantity: 1,
+        },
+        {
+            color: 'lime',
+            size: 46,
+            Quantity: 1,
+        }
+    ]
 }
 
 storiesOf('ColorSizeSelection', module)
     .add('ColorSizeSelection', () => <ColorSizeSelection colorSizes={colorSizesExample} colorSelected={'green'} />)
+
+
+    /*
+ModelColorSize: [
+{
+IdColor: 15910,
+IdSize: 3,
+Quantity: 5,
+IsFastDelivery: false
+},
+{
+IdColor: 15910,
+IdSize: 4,
+Quantity: 16,
+IsFastDelivery: false
+},
+{
+IdColor: 15910,
+IdSize: 5,
+Quantity: 14,
+IsFastDelivery: false
+},
+{
+IdColor: 15910,
+IdSize: 6,
+Quantity: 3,
+IsFastDelivery: false
+}
+],
+
+    */
