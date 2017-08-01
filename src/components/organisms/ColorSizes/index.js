@@ -21,6 +21,7 @@ class ColorSizes extends React.Component {
         classType={this.props.colorSizes.classType}
         sizes={this.props.colorSizes.sizes}
         selected={this.props.sizeSelected}
+        availability={this.props.colorSizes.colorSizesAvailability[this.props.colorSelected]}
         onClick={this.props.callbackParent}
       />
     </div>
