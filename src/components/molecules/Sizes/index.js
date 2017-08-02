@@ -10,7 +10,8 @@ class Sizes extends React.Component {
   }
 
   isDisabled(size) {
-    return this.props.availability.filter((obj) => size === obj.size && obj.stock > 0).length === 0
+    console.log(this.props.availability)
+    return this.props.availability.filter((obj) => size === obj.size && obj.quantity > 0).length === 0
   }
 
   render() {

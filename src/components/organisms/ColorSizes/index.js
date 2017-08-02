@@ -21,7 +21,7 @@ class ColorSizes extends React.Component {
         classType={this.props.colorSizes.classType}
         sizes={this.props.colorSizes.sizes}
         selected={this.props.sizeSelected}
-        availability={this.props.colorSizes.colorSizesAvailability[this.props.colorSelected]}
+        availability={this.props.colorSizes.colorSizesAvailability.filter((obj) => obj.color === this.props.colorSelected &&  obj.quantity > 0)}
         onClick={this.props.callbackParent}
       />
     </div>

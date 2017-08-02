@@ -28,12 +28,8 @@ class ColorSizeSelection extends React.Component {
   }
 
   isValidSelection(availability) {
-    console.log(this.state.colorSelected);
-    if(this.state.colorSelected != '') {
-      if(this.props.colorSizes.colorSizesAvailability[this.state.colorSelected].filter((obj) => obj.size === this.state.sizeSelected && obj.size > 0).length > 0) {
-        return true
-      }
-
+    if(this.props.colorSizes.colorSizesAvailability.filter((obj) => obj.color === this.state.colorSelected && obj.size === this.state.sizeSelected && obj.quantity > 0).length > 0) {
+      return true
     }
     return false;
   }
