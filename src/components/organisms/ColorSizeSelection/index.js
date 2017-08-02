@@ -34,13 +34,14 @@ class ColorSizeSelection extends React.Component {
 
   sizesDisabled(color) {
     if(!color) return []
-
+    return [44, 46];
+    // return (this.props.colorSizes.colorSizesAvailability.map((obj) => obj).reduce((sizeDisabled, value) => { sizeDisabled.push(value.size); return sizeDisabled}, []))
 
   }
 
   colorsDisabled(size) {
     if(!size) return []
-
+    return ['green', 'lime']
 
   }
 
