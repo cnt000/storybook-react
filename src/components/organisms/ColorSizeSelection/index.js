@@ -34,15 +34,15 @@ class ColorSizeSelection extends React.Component {
 
   sizesDisabled(color) {
     if(!color) return []
-    return [44, 46];
-    // return (this.props.colorSizes.colorSizesAvailability.map((obj) => obj).reduce((sizeDisabled, value) => { sizeDisabled.push(value.size); return sizeDisabled}, []))
+    // return [44, 46];
+    return (this.props.colorSizes.colorSizesAvailability.filter((obj) => obj.color === color).reduce((sizeDisabled, value) => { sizeDisabled.push(value.size); return sizeDisabled}, []))
 
   }
 
   colorsDisabled(size) {
     if(!size) return []
-    return ['green', 'lime']
-
+    // return ['green', 'lime']
+    return (this.props.colorSizes.colorSizesAvailability.filter((obj) => obj.size === size).reduce((colorDisabled, value) => { colorDisabled.push(value.color); return colorDisabled}, []))
   }
 
   render() {
