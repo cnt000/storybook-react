@@ -32,9 +32,15 @@ let colorSizesExample = {
             color: 'orange',
             size: 46,
             quantity: 0,
+        },
+        {
+            color: 'orange',
+            size: 48,
+            quantity: 4,
         }
     ]
 }
 
 storiesOf('ColorSizeSelection', module)
     .add('ColorSizeSelection', () => <ColorSizeSelection colorSizes={colorSizesExample} colorSelected={'green'} />)
+    .add('ColorSizeSelection no color selected', () => <ColorSizeSelection colorSizes={colorSizesExample} />)

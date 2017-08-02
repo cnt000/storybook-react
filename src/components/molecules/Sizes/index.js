@@ -9,11 +9,6 @@ class Sizes extends React.Component {
     super(props);
   }
 
-  isDisabled(size) {
-    console.log(this.props.availability)
-    return this.props.availability.filter((obj) => size === obj.size && obj.quantity > 0).length === 0
-  }
-
   render() {
     if(!this.props.sizes) {
       return <div> Out of Stock </div>
@@ -25,7 +20,7 @@ class Sizes extends React.Component {
         key={size} 
         size={size} 
         isSelected={(this.props.selected === size)} 
-        isDisabled={this.isDisabled(size)}
+        isDisabled={!!this.props.disabled && (!this.props.disabled || this.props.disabled.filter((obj) => obj === size).length > 0)}
         onClick={this.props.onClick}
       >{`${size}`}</Size>)}
     </div>

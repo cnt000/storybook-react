@@ -16,6 +16,7 @@ class Colors extends React.Component {
         key={color}
         color={color}
         isSelected={(this.props.selected === color)}
+        isDisabled={!!this.props.disabled && (!this.props.disabled || this.props.disabled.filter((obj) => obj === color).length > 0)}
         onClick={this.props.onClick}
       />)}
     </div>

@@ -19,22 +19,20 @@ class Color extends React.Component {
   
   constructor(props) {
     super(props);
-    this.state = {
-      isSelected: this.props.isSelected
-    };
   }
 
-  callParent(color) {
+  callParent(type, color) {
     this.props.onClick('color', color);
   }
 
   render() {
     let mainColorStyle = (this.props.isSelected) ? {border: '4px solid red'} : {}
-    let mergedStyle = Object.assign({}, buttonStyles, mainColorStyle)
+    let disabledStyle = (this.props.isDisabled) ? {border: '3px solid grey'} : {}
+    let mergedStyle = Object.assign({}, buttonStyles, mainColorStyle, disabledStyle)
     return <button 
       style={Object.assign({}, mergedStyle, {backgroundColor: this.props.color})} 
       onClick={e => {
-        this.callParent(this.props.color);
+        this.callParent('color', this.props.color);
       }}
     />
   }

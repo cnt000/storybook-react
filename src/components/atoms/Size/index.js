@@ -15,12 +15,12 @@ const buttonStyles = {
 
 const Size = ({ onClick, children, size, isSelected = false, isDisabled = false  }) => {
   let selectedStyle = (isSelected) ? {border: '4px solid red'} : {}
-  let disabledStyle = (isDisabled) ? {border: '3px solid yellow'} : {}
+  let disabledStyle = (isDisabled) ? {border: '3px solid grey'} : {}
   let mergedStyle = Object.assign({}, buttonStyles, selectedStyle, disabledStyle)
   return <button 
     style={mergedStyle}
     onClick={e => {
-      if(isDisabled) { onClick('color', ''); }
+      if(isDisabled) { onClick('color', ''); onClick('size', size); }
       else { onClick('size', size); }
     }}>
     {children}
