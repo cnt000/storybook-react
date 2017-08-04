@@ -15,16 +15,31 @@ class ColorSizeSelection extends React.Component {
     }
   }
 
-  onChildChanged(type, value) {
+  onChildChanged(type, value, isDisabled = false) {
     console.log(type, value)
-    if(type === 'color') {
-      this.setState({
-        colorSelected: value
-      });
-    } else if(type === 'size') {
-      this.setState({
-        sizeSelected: value
-      });
+    if(isDisabled) {
+      if(type === 'color') {
+        this.setState({
+          colorSelected: value,
+          sizeSelected: ''
+        });
+      }
+      if(type === 'size') {
+        this.setState({
+          colorSelected: '',
+          sizeSelected: value
+        });
+      }
+    } else {
+      if(type === 'color') {
+        this.setState({
+          colorSelected: value
+        });
+      } else if(type === 'size') {
+        this.setState({
+          sizeSelected: value
+        });
+      }
     }
   }
 
