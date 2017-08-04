@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
 
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const sizeBaseStyles = {
   border: '3px solid orange',
@@ -11,7 +11,7 @@ const sizeBaseStyles = {
   fontSize: 15,
   padding: '3px 10px',
   margin: 10,
-};
+}
 
 const colorBaseStyles = {
   border: '3px solid orange',
@@ -23,7 +23,7 @@ const colorBaseStyles = {
   margin: 10,
   width: 50,
   height: 50
-};
+}
 
 const Button = ({ onClick, children, type, value, isSelected = false, isDisabled = false  }) => {
   let selectedStyle = (isSelected) ? {border: '4px solid red'} : {}
@@ -45,9 +45,10 @@ Button.propTypes = {
   children: PropTypes.string,
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired
-};
+}
+
 Button.defaultProps = {
   onClick: () => {},
-};
+}
 
 export default Button
