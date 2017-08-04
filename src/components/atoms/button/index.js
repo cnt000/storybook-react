@@ -44,7 +44,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.string,
   type: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired
+  value: PropTypes.string
 }
 
 Button.defaultProps = {
