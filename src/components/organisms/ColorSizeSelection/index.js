@@ -1,8 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
 
 import React from 'react';
-import Sizes from '../../molecules/Sizes';
-import Colors from '../../molecules/Colors';
+import Buttons from '../../molecules/Buttons';
 
 class ColorSizeSelection extends React.Component {
   
@@ -49,29 +48,29 @@ class ColorSizeSelection extends React.Component {
 
   sizesDisabled(color) {
     if(!color) return []
-    // return [44, 46];
     return (this.props.colorSizes.colorSizesAvailability.filter((obj) => obj.color === color).reduce((sizeDisabled, value) => { sizeDisabled.push(value.size); return sizeDisabled}, []))
 
   }
 
   colorsDisabled(size) {
     if(!size) return []
-    // return ['green', 'lime']
     return (this.props.colorSizes.colorSizesAvailability.filter((obj) => obj.size === size).reduce((colorDisabled, value) => { colorDisabled.push(value.color); return colorDisabled}, []))
   }
 
   render() {
     return <div>
-      <Colors
-        colors={this.props.colorSizes.colors}
+      <Buttons
+        type={'color'}
+        values={this.props.colorSizes.colors}
         selected={this.state.colorSelected}
         onClick={this.onChildChanged}
         disabled={this.colorsDisabled(this.state.sizeSelected)}
         isValidSelection={this.isValidSelection()}
       />
-      <Sizes
+      <Buttons
         classType={this.props.colorSizes.classType}
-        sizes={this.props.colorSizes.sizes}
+        type={'size'}
+        values={this.props.colorSizes.sizes}
         selected={this.state.sizeSelected}
         disabled={this.sizesDisabled(this.state.colorSelected)}
         onClick={this.onChildChanged}

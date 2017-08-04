@@ -4,24 +4,19 @@ import React from 'react';
 import Button from '../../atoms/Button';
 import PropTypes from 'prop-types';
 
-class Buttons extends React.Component {
-  
-  constructor(props) {
-    super(props);
-  }
+const Buttons = ({ onClick, values, type, classType = '', selected = false, disabled = false  }) => {
+  if(!values) return <p>OOO</p>;
 
-  render() {
-    return <div><span>Label: </span>
-      {this.props.values && this.props.values.map(value => <Button
-        key={value}
-        value={value}
-        type={this.props.type}
-        isSelected={(this.props.selected === value)}
-        isDisabled={!!this.props.disabled && (!this.props.disabled || this.props.disabled.filter((obj) => obj === value).length > 0)}
-        onClick={this.props.onClick}
-      >{(this.props.type === 'size') ? value : ''}</Button>)}
-    </div>
-  }
+  return <div><span>{type}: {(classType != '') ? classType : ''}</span>
+    {values && values.map(value => <Button
+      key={value}
+      value={value}
+      type={type}
+      isSelected={(selected === value)}
+      isDisabled={!!disabled && (!disabled || disabled.filter((obj) => obj === value).length > 0)}
+      onClick={onClick}
+    >{(type === 'size') ? value : ''}</Button>)}
+  </div>
 }
 
 Buttons.propTypes = {
