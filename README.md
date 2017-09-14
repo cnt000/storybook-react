@@ -25,10 +25,6 @@ npm run storybook
 ## Add a story
 To add a story just place a file called `*.story.js` inside the `src` folder
 
-## Resources
+## Prettier Magic
 
-* [React](https://facebook.github.io/react/)
-* [Storybook](https://github.com/storybooks/storybook)
-
-# storybook-scaffold
-test component on scaffold
+yarn eslint -- --fix .

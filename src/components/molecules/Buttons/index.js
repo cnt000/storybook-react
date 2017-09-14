@@ -1,8 +1,16 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
-
 import React from 'react';
-import Button from '../../atoms/Button';
+import Button from '../../atoms/button';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Div = styled.button`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
 
 const Buttons = ({
   onClick,
@@ -15,7 +23,7 @@ const Buttons = ({
   if (!values) return <p>OOO</p>;
 
   return (
-    <div>
+    <Div>
       <span>
         {type}: {classType !== '' ? classType : ''}
       </span>
@@ -35,7 +43,7 @@ const Buttons = ({
             {type === 'size' ? value : ''}
           </Button>,
         )}
-    </div>
+    </Div>
   );
 };
 

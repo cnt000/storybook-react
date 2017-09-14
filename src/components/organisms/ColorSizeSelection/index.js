@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
-
 import React from 'react';
 import Buttons from '../../molecules/Buttons';
 import PropTypes from 'prop-types';

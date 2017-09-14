@@ -1,29 +1,18 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
-
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
-const sizeBaseStyles = {
-  border: '3px solid orange',
-  borderRadius: 3,
-  backgroundColor: '#FFFFFF',
-  cursor: 'pointer',
-  fontSize: 15,
-  padding: '3px 10px',
-  margin: 10,
-};
+const ButtonBase = styled.button`
+  /* Adapt the colours based on primary prop */
+  background: ${props => props.primary ? 'palevioletred' : 'white'};
+  color: ${props => props.primary ? 'white' : 'palevioletred'};
 
-const colorBaseStyles = {
-  border: '3px solid orange',
-  borderRadius: 3,
-  backgroundColor: '#FFFFFF',
-  cursor: 'pointer',
-  fontSize: 15,
-  padding: '3px 10px',
-  margin: 10,
-  width: 50,
-  height: 50,
-};
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
 
 const Button = ({
   onClick,
@@ -35,24 +24,18 @@ const Button = ({
 }) => {
   let selectedStyle = isSelected ? { border: '4px solid red' } : {};
   let disabledStyle = isDisabled ? { border: '3px solid grey' } : {};
-  let colorStyle = type === 'color' ? { backgroundColor: value } : {};
-  let mainStyle = type === 'color' ? colorBaseStyles : sizeBaseStyles;
-  let mergedStyle = Object.assign(
-    {},
-    mainStyle,
-    colorStyle,
-    selectedStyle,
-    disabledStyle,
-  );
+  let mergedStyle = Object.assign({}, selectedStyle, disabledStyle);
   return (
-    <button
-      style={mergedStyle}
-      onClick={() => {
-        onClick(type, value, isDisabled);
-      }}
-    >
-      {children}
-    </button>
+    <ButtonBase>
+      <button
+        style={mergedStyle}
+        onClick={() => {
+          onClick(type, value, isDisabled);
+        }}
+      >
+        {children}
+      </button>
+    </ButtonBase>
   );
 };
 
