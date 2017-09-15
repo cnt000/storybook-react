@@ -1,7 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
-
 import React from 'react';
-import Button from '../../atoms/Button';
+import Button from '../../atoms/button';
 import PropTypes from 'prop-types';
 
 const Buttons = ({
