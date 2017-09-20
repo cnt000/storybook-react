@@ -32,3 +32,6 @@ To add a story just place a file called `*.story.js` inside the `src` folder
 
 # storybook-scaffold
 test component on scaffold
+
+yarn eslint -- --fix .
+
